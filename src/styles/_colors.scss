@@ -1,0 +1,47 @@
+// Cores
+// Azul | Azul oficial - 100
+$k-azul-100: mix(white, #009ada, 51%);
+$k-azul-300: mix(white, #009ada, 30%);
+$k-azul-500: #009ada;
+$k-azul-700: mix(black, #009ada, 25%);
+$k-azul-900: mix(black, #009ada, 45%);
+
+// Cinza | Cinza oficial - 500
+$k-cinza-100: mix(white, #818a8f, 60%);
+$k-cinza-300: mix(white, #818a8f, 35%);
+$k-cinza-500: #818a8f;
+$k-cinza-700: mix(black, #818a8f, 30%);
+$k-cinza-900: mix(black, #818a8f, 50%);
+
+// Rosa | Rosa oficial - 500
+$k-rosa-100: mix(white, #da39af, 60%);
+$k-rosa-300: mix(white, #da39af, 35%);
+$k-rosa-500: #da39af;
+$k-rosa-700: mix(black, #da39af, 30%);
+$k-rosa-900: mix(black, #da39af, 50%);
+
+// Laranja | Laranja oficial - 500
+$k-laranja-100: mix(white, #ff8000, 50%);
+$k-laranja-300: mix(white, #ff8000, 30%);
+$k-laranja-500: #ff8000;
+$k-laranja-700: mix(black, #ff8000, 30%);
+$k-laranja-900: mix(black, #ff8000, 50%);
+
+// Outras
+// Vermelho | Erros
+$k-vermelho-100: mix(white, #ff3333, 70%);
+$k-vermelho-300: mix(white, #ff3333, 40%);
+$k-vermelho-500: #ff3333;
+$k-vermelho-700: mix(black, #ff3333, 40%);
+$k-vermelho-900: mix(black, #ff3333, 70%);
+
+// Verde | Sucessos
+$k-verde-100: mix(white, #33cc00, 70%);
+$k-verde-300: mix(white, #33cc00, 45%);
+$k-verde-500: #33cc00;
+$k-verde-700: mix(black, #33cc00, 40%);
+$k-verde-900: mix(black, #33cc00, 70%);
+//
+//
+
+$background-hover: #fcfcfc;

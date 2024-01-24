@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<p-divider></p-divider>
+
+<section>
+
+  <div class="unidades">
+    <label for="unidade">Selecione uma unidade</label>
+    <p-dropdown [options]="cities" id="unidade" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true" filterBy="name"></p-dropdown>
+  </div>
+
+  <h3>Lista de alunos</h3>
+
+  <div class="alunos">
+
+    <div class="card">
+      <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.quantity }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+</section>

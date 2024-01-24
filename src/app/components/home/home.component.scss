@@ -1,0 +1,11 @@
+section {
+  padding: 2rem;
+}
+
+.unidades {
+  background-color: aqua;
+
+  ::ng-deep .p-dropdown {
+    width: 100%;
+  }
+}

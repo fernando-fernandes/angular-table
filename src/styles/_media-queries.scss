@@ -1,0 +1,87 @@
+@use "sass:map";
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+@mixin media-up($key) {
+  @if map.has-key($breakpoints, $key) {
+    $size: map.get($breakpoints, $key);
+
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @media (min-width: #{$key}px) {
+      @content;
+    }
+  }
+}
+
+@mixin media-down($key) {
+  @if map.has-key($breakpoints, $key) {
+    $size: map.get($breakpoints, $key);
+
+    @media (max-width: #{($size)-1}) {
+      @content;
+    }
+  } @else {
+    @media (max-width: #{($key)-1}px) {
+      @content;
+    }
+  }
+}
+
+// @mixin media($breakpoint) {
+//   //600
+//   @if $breakpoint == phone {
+//     @media only screen and (max-width: 37.5em) {
+//       @content;
+//     }
+//   }
+
+//   //880
+//   @if $breakpoint == tab-port {
+//     @media only screen and (max-width: 55em) {
+//       @content;
+//     }
+//   }
+
+//   //1200
+//   @if $breakpoint == tab-land {
+//     @media only screen and (max-width: 75em) {
+//       @content;
+//     }
+//   }
+
+//   //1800
+//   @if $breakpoint == desktop {
+//     @media only screen and (max-width: 112.5em) {
+//       @content;
+//     }
+//   }
+
+//   // ******** min ********
+
+//   // > 900
+//   @if $breakpoint == min-tab-port {
+//     @media only screen and (min-width: 55.05em) {
+//       @content;
+//     }
+//   }
+
+//   // > 1200
+//   @if $breakpoint == min-tab-land {
+//     @media only screen and (min-width: 75.05em) {
+//       @content;
+//     }
+//   }
+
+//   // @if $breakpoint == min-max-tab-port {
+//   //     @media only screen and (min-width: 55.05em) and (max-width: 67em) { @content } // > 1200
+//   // }
+// }

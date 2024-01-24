@@ -1,0 +1,42 @@
+@use './global';
+
+// * {
+//   box-sizing: border-box;
+//   font-family: 'Montserrat', sans-serif;
+//   outline: none;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.fa,
+.fas {
+  font-family: 'Font Awesome 5 Free';
+}
+
+html,
+body {
+  // background-color: #fafbfc;
+  font-size: 16px;
+  padding: 0 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+
+  @include global.media-down(md) {
+    font-size: 14px;
+  }
+
+  @include global.media-down(sm) {
+    font-size: 15px;
+  }
+}
+
+.version {
+  font-size: 0.7rem;
+  text-align: right;
+  color: #aaa;
+  margin: 0;
+  position: fixed;
+  bottom: 0.3rem;
+  left: 1rem;
+  z-index: 0;
+}

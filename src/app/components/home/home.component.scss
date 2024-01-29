@@ -1,11 +1,49 @@
 section {
-  padding: 2rem;
+  padding: 1rem;
+}
+
+.alunos {
+  // margin-top: 3rem;
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 1rem;
+  }
+
+  ::ng-deep .p-datatable-thead th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    // font-family: 'Montserrat', sans-serif;
+  }
+
+  ::ng-deep .p-datatable-tbody td,
+  ::ng-deep .p-inputtext {
+    font-size: 0.7rem;
+    // font-family: 'Montserrat', sans-serif;
+  }
+
+  ::ng-deep .p-tag {
+    font-size: 0.7rem;
+    gap: 3rem;
+    flex-wrap: nowrap;
+  }
+
+  .actions {
+    display: flex;
+    gap: 0.3rem;
+  }
 }
 
 .unidades {
-  background-color: aqua;
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  margin: 2rem 0 3rem;
 
   ::ng-deep .p-dropdown {
-    width: 100%;
+    width: 30rem;
   }
 }

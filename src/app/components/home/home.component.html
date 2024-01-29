@@ -1,38 +1,152 @@
 <app-header></app-header>
 
-<p-divider></p-divider>
+
 
 <section>
 
   <div class="unidades">
-    <label for="unidade">Selecione uma unidade</label>
-    <p-dropdown [options]="cities" id="unidade" [(ngModel)]="selectedCity" optionLabel="name" [filter]="true" filterBy="name"></p-dropdown>
+    <label>Selecione uma unidade</label>
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      optionLabel="name"
+      [filter]="true"
+      filterBy="name"
+      class="p-inputtext-sm"></p-dropdown>
   </div>
 
-  <h3>Lista de alunos</h3>
 
   <div class="alunos">
+    <h3>Lista de alunos</h3>
 
     <div class="card">
-      <p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
+      <p-toast position="top-center"></p-toast>
+      <p-table
+        [value]="products"
+        styleClass="p-datatable-striped p-datatable-sm"
+        dataKey="id"
+        editMode="row"
+        responsiveLayout="stack"
+        [tableStyle]="{'min-width': '50rem'}"
+        [breakpoint]="'790px'">
         <ng-template pTemplate="header">
           <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Quantity</th>
+            <th>Nome do aluno</th>
+            <th>Série escolar</th>
+            <th>Nome do responsável</th>
+            <th>Celular do responsável</th>
+            <th>E-mail do responsável</th>
+            <th>Dados atualizados</th>
+            <th>Data de atualização</th>
+            <th>Atualizado por</th>
+            <th>Status IT</th>
+            <th>Ações</th>
           </tr>
         </ng-template>
-        <ng-template pTemplate="body" let-product>
-          <tr>
-            <td>{{ product.code }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.quantity }}</td>
+        <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+          <tr [pEditableRow]="product">
+            <td><span class="p-column-title">Nome do aluno</span>{{ product.nomeAluno }}</td>
+            <td><span class="p-column-title">Série escolar</span>{{ product.serieEscolar }}</td>
+            <td>
+              <span class="p-column-title">Nome do responsável</span>{{ product.nomeResponsavel }}
+            </td>
+            <td>
+              <span class="p-column-title">Celular do responsável</span>
+
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <input
+                    pInputText
+                    type="text"
+                    class="p-inputtext-sm"
+                    [(ngModel)]="product.celularResponsavel"
+                    required />
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ product.celularResponsavel }}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              <span class="p-column-title">E-mail do responsável</span>
+
+              <p-cellEditor>
+                <ng-template pTemplate="input">
+                  <input
+                    pInputText
+                    type="text"
+                    class="p-inputtext-sm"
+                    [(ngModel)]="product.emailResponsavel"
+                    required />
+                </ng-template>
+                <ng-template pTemplate="output">
+                  {{ product.emailResponsavel }}
+                </ng-template>
+              </p-cellEditor>
+            </td>
+            <td>
+              <span class="p-column-title">Dados atualizados</span>
+
+              <p-dropdown
+                [options]="statuses"
+                class="p-inputtext-sm"
+                appendTo="body"
+                [(ngModel)]="product.dadosAtualizados"
+                [style]="{ width: '100%' }"></p-dropdown>
+            </td>
+            <td>
+              <span class="p-column-title">Data de atualização</span>{{ product.dataAtualizacao }}
+            </td>
+            <td><span class="p-column-title">Atualizado por</span>{{ product.atualizadoPor }}</td>
+
+            <td [ngSwitch]="product.statusIt" style="width:7rem">
+              <span class="p-column-title">Status IT</span>
+              <p-tag
+                *ngSwitchCase="'Sem interesse'"
+                severity="warning"
+                [value]="product.statusIt"></p-tag>
+
+              <p-tag
+                *ngSwitchCase="'Confirmado'"
+                severity="success"
+                [value]="product.statusIt"></p-tag>
+
+              <p-tag *ngSwitchDefault severity="info" [value]="product.statusIt"></p-tag>
+            </td>
+            <td>
+              <div class="actions">
+                <button
+                  *ngIf="!editing"
+                  pButton
+                  pRipple
+                  type="button"
+                  pInitEditableRow
+                  icon="pi pi-pencil"
+                  (click)="onRowEditInit(product)"
+                  class="p-button-rounded p-button-text"></button>
+                <button
+                  *ngIf="editing"
+                  pButton
+                  pRipple
+                  type="button"
+                  pSaveEditableRow
+                  icon="pi pi-check"
+                  (click)="onRowEditSave(product)"
+                  class="p-button-rounded p-button-text p-button-success mr-2"></button>
+                <button
+                  *ngIf="editing"
+                  pButton
+                  pRipple
+                  type="button"
+                  pCancelEditableRow
+                  icon="pi pi-times"
+                  (click)="onRowEditCancel(product, ri)"
+                  class="p-button-rounded p-button-text p-button-danger"></button>
+              </div>
+            </td>
           </tr>
         </ng-template>
       </p-table>
     </div>
   </div>
-
 </section>

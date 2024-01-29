@@ -1,8 +1,8 @@
 @use '../../../styles/global';
 
 .header {
-  background-color: #fff;
-  padding: 1rem 2rem 0;
+  background-color: #6bcff6;
+  padding: 1rem 1rem;
   display: flex;
   align-items: center;
 }
@@ -12,29 +12,23 @@
   align-items: center;
 
   img {
-    width: 110px;
+    width: 80px;
     height: auto;
 
     @include global.media-down(md) {
       width: 100px;
     }
   }
-
-  .project-title {
-    margin-left: 1.5rem;
-    padding: 0.5rem 0 0.5rem 1.3rem;
-    border-left: solid thin rgba(0 0 0 / 0.05);
-    color: rgba(0 0 0 / 0.3);
-    font-weight: 500;
-  }
 }
 
 .title {
   margin-left: 2rem;
-  padding: 0.4rem 0 0.4rem 2rem;
-  border-left: solid thin #e3e3e3;
+  // padding: 0.4rem 0 0.4rem 0;
+  // border-left: solid thin #e3e3e3;
 
   span {
-    color: #666;
+    color: rgba(white, 0.97);
+    font-weight: 500;
+    font-size: 0.95rem;
   }
 }

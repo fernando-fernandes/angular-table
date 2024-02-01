@@ -12,14 +12,14 @@ section {
   }
 
   ::ng-deep .p-datatable-thead th {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 600;
     // font-family: 'Montserrat', sans-serif;
   }
 
   ::ng-deep .p-datatable-tbody td,
   ::ng-deep .p-inputtext {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     // font-family: 'Montserrat', sans-serif;
   }
 
@@ -36,14 +36,17 @@ section {
 }
 
 .unidades {
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-  }
 
   margin: 2rem 0 3rem;
 
   ::ng-deep .p-dropdown {
     width: 30rem;
   }
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  font-size: .9rem;
 }
